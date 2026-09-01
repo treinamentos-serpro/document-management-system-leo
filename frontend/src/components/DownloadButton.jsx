@@ -26,11 +26,16 @@ export default function DownloadButton({ document }) {
   }
 
   return (
-    <div className="download-action">
-      <button type="button" onClick={handleDownload} disabled={isDownloading}>
+    <div className="grid justify-items-stretch gap-1 sm:justify-items-end">
+      <button
+        type="button"
+        onClick={handleDownload}
+        disabled={isDownloading}
+        className="rounded-md bg-teal-700 px-4 py-3 font-medium text-white transition-colors hover:bg-teal-800 disabled:cursor-not-allowed disabled:opacity-60"
+      >
         {isDownloading ? 'Baixando...' : 'Baixar'}
       </button>
-      {error && <small className="error-message">{error}</small>}
+      {error && <small className="font-medium text-red-700">{error}</small>}
     </div>
   );
 }
